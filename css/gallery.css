@@ -112,7 +112,7 @@ h2 {
 
 .gallery-page img,
 .gallery-page video {
-    width: 250px;
+    width: 280px;
     height: 180px;
     object-fit: cover;
     border-radius: 10px;
