@@ -113,7 +113,8 @@ h2 {
 .gallery-page img,
 .gallery-page video {
     width: 280px;
-    height: 180px;
+    height: auto;
+    /* 이미지 비율 유지 */
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
@@ -136,7 +137,8 @@ h2 {
 #gallery-container img,
 #gallery-container video {
     width: 280px;
-    height: 150px;
+    height: auto;
+    /* 이미지 비율 유지 */
     object-fit: cover;
     margin: 0.5rem;
     cursor: pointer;
