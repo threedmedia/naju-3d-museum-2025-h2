@@ -39,6 +39,10 @@ header h2 {
     margin: 0;
     letter-spacing: 2px;
 }
+main h2{
+    font-size: 48px;
+}
+
 
 .logo-link {
     text-decoration: none;
@@ -127,6 +131,9 @@ main h3 {
     color: #fff;
     margin-bottom: 2rem;
     text-align: center;
+}
+.postit{
+    font-size: 24px;
 }
 
 /* 각 섹션 디자인 */

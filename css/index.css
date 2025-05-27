@@ -110,14 +110,18 @@ main {
 
 .gallery-btn {
     display: inline-block;
-    background-color: #444;
     color: #fff;
     padding: 12px 20px;
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.5rem;
     border-radius: 8px;
     text-decoration: none;
     transition: background-color 0.3s ease;
+    width: 400px;
+    border-width: 0.1px;
+    border-style: solid;
+
+
 }
 
 .gallery-btn:hover {
@@ -131,6 +135,7 @@ main {
     gap: 1rem;
     max-width: 100%;
 }
+
 
 .exhibition-btn {
     display: flex;
