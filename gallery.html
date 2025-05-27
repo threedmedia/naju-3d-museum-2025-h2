@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>갤러리</title>
+    <link rel="stylesheet" href="/Elementary/css/gallery.css">
+    <script src="/Elementary/js/index.js" defer></script>
+
+</head>
+
+<body>
+    <header>
+        <a href="/Elementary/index.html" class="logo-link">
+            <h1 class="gradient-text">자랑스러운 나주 알기</h1>
+            <h2 class="gradient-text">내가 만드는 3D 역사박물관</h2>
+        </a>
+    </header>
+    <section id="gallery-section">
+        <h2 class="gradient-text">Gallery</h2>
+
+        <div id="gallery-container">
+            <!-- 페이지 1 -->
+            <div class="gallery-page active" data-page="1">
+                <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=92f2ed5b-37b3-49dc-b260-3fffe502d85c"
+                    alt="이미지1" onclick="openModal(this.src)" />
+                <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=0e9e5951-aed4-4728-91ce-1c9cf4e7d429"
+                    alt="이미지2" onclick="openModal(this.src)" />
+                <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=92f2ed5b-37b3-49dc-b260-3fffe502d85c"
+                    alt="이미지1" onclick="openModal(this.src)" />
+                <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=0e9e5951-aed4-4728-91ce-1c9cf4e7d429"
+                    alt="이미지2" onclick="openModal(this.src)" />
+                <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=92f2ed5b-37b3-49dc-b260-3fffe502d85c"
+                    alt="이미지1" onclick="openModal(this.src)" />
+                <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=0e9e5951-aed4-4728-91ce-1c9cf4e7d429"
+                    alt="이미지2" onclick="openModal(this.src)" />
+                <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=92f2ed5b-37b3-49dc-b260-3fffe502d85c"
+                    alt="이미지1" onclick="openModal(this.src)" />
+                <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=0e9e5951-aed4-4728-91ce-1c9cf4e7d429"
+                    alt="이미지2" onclick="openModal(this.src)" />
+                <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=92f2ed5b-37b3-49dc-b260-3fffe502d85c"
+                    alt="이미지1" onclick="openModal(this.src)" />
+                <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=0e9e5951-aed4-4728-91ce-1c9cf4e7d429"
+                    alt="이미지2" onclick="openModal(this.src)" />
+                <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=92f2ed5b-37b3-49dc-b260-3fffe502d85c"
+                    alt="이미지1" onclick="openModal(this.src)" />
+                <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=0e9e5951-aed4-4728-91ce-1c9cf4e7d429"
+                    alt="이미지2" onclick="openModal(this.src)" />
+                <video src="/Media/유물1_돌도끼.mp4" controls onclick="openModal(this.src)"></video>
+                <!-- ... 최대 10개 정도 -->
+            </div>
+
+            <!-- 페이지 2 -->
+            <div class="gallery-page" data-page="2">
+                <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=92f2ed5b-37b3-49dc-b260-3fffe502d85c"
+                    alt="이미지1" onclick="openModal(this.src)" />
+                <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=0e9e5951-aed4-4728-91ce-1c9cf4e7d429"
+                    alt="이미지2" onclick="openModal(this.src)" />
+                <video src="video2.mp4" controls></video>
+                <!-- ... -->
+            </div>
+
+            <!-- 필요한 만큼 페이지 추가 -->
+        </div>
+
+        <div class="pagination-controls">
+            <button class="page-btn" onclick="showPage(1)">1</button>
+            <button class="page-btn" onclick="showPage(2)">2</button>
+            <button class="page-btn" onclick="showNextPage()">다음</button>
+        </div>
+        <!-- 모달 레이아웃 -->
+        <div id="modal" onclick="closeModal()">
+            <span class="close-btn">&times;</span>
+            <img id="modal-img" />
+            <video id="modal-video" controls></video>
+        </div>
+    </section>
+
+</body>
+
+</html>

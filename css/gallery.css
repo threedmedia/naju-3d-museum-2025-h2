@@ -1,0 +1,298 @@
+@font-face {
+    font-family: 'PurenJeonnam';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/PureunJeonnam.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'PurenJeonnam';
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    min-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
+    overflow-x: hidden;
+    justify-items: center;
+    align-items: center;
+    font-size: 20px;
+    text-decoration: none;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration-line: none;
+    /* 권장 */
+}
+
+/* 그라데이션 텍스트 효과 */
+.gradient-text {
+    background-image: linear-gradient(90deg, #fff, #fff);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transition: opacity 1s ease;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.gradient-text:hover {
+    animation: gradient 3s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+header {
+    text-align: center;
+    padding: 3rem 1rem 1rem;
+    text-decoration: none;
+}
+
+h1 {
+    margin-bottom: 1rem;
+    font-size: 70px;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+
+
+}
+
+
+#gallery-section {
+    padding: 2rem;
+    text-align: center;
+}
+
+#gallery-container {
+    display: flex;
+    /* 플렉스 박스 사용 */
+    flex-wrap: wrap;
+    /* 공간 부족 시 자동 줄바꿈 */
+    gap: 10px;
+    /* 아이템 간 간격 */
+}
+
+.gallery-page {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.gallery-page.active {
+    display: flex;
+}
+
+.gallery-page img,
+.gallery-page video {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.pagination-controls {
+    margin-top: 1rem;
+}
+
+.page-btn {
+    padding: 0.5rem 1rem;
+    margin: 0 0.2rem;
+    border: none;
+    background-color: #ebca7a;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#gallery-container img,
+#gallery-container video {
+    width: 440px;
+    height: 300px;
+    object-fit: cover;
+    margin: 0.5rem;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* 모달 스타일 */
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+#modal img,
+#modal video {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    /* 헤더 제목들 크기 조절 */
+    header h1 {
+        font-size: 36px;
+        /* PC 버전보다 작게 */
+    }
+
+    header h2 {
+        font-size: 24px;
+        /* PC 버전보다 작게 */
+    }
+
+    /* 갤러리 섹션 제목 크기 조절 */
+    #gallery-section h2 {
+        font-size: 28px;
+        /* PC 버전보다 작게 */
+    }
+
+    /* 갤러리 컨테이너 안의 이미지와 비디오 스타일 */
+    #gallery-container img,
+    #gallery-container video {
+        /* 이미지와 비디오가 부모 요소(div.gallery-page) 너비를 꽉 채우도록 설정 */
+        width: 100%;
+        /* 높이는 자동으로 조절되게 해서 비율 유지 */
+        height: auto;
+        /* 이미지가 너무 크면 잘리지 않도록 최대 너비 설정 (필요시 주석 해제하고 값 조절) */
+        /* max-width: 100%; */
+        /* 이미지가 너무 작아지지 않도록 최소 너비 설정 (필요시 추가) */
+        /* min-width: 100px; */
+        /* 이미지나 비디오 사이의 간격 추가 */
+        margin-bottom: 15px;
+        /* 아래쪽에만 간격 */
+        /* 테두리 둥글게 (필요시 추가) */
+        /* border-radius: 8px; */
+        /* 그림자 효과 (필요시 추가) */
+        /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    }
+
+    /* 이미지들을 여러 열로 배치하고 싶다면 gallery-page에 display: grid나 flex를 사용하고 여기서 조절해요! */
+    /* 예시: 2열로 배치하고 싶을 때 */
+    .gallery-page {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        /* 최소 150px 크기로 자동 배치 */
+        gap: 10px;
+        /* 이미지 사이 간격 */
+    }
+
+    /* 만약 이미지가 1열로 쭉 나열되게 하려면 위의 grid 설정을 빼거나, */
+    /* grid-template-columns: 1fr; 로 설정하면 돼요. HTML 구조 상 이미지가 바로 아래로 쌓이는 구조라 이 설정이 필요 없을 수도 있어요! */
+
+
+    /* 페이지네이션 버튼 스타일 */
+    .pagination-controls {
+        /* 버튼들을 가운데 정렬 (flexbox나 text-align 사용) */
+        text-align: center;
+        /* 버튼들이 inline-block 요소라면 이렇게 가운데 정렬 */
+        /* 또는 flexbox 사용 */
+        /* display: flex; */
+        /* justify-content: center; */
+        margin-top: 20px;
+        /* 위에 간격 */
+    }
+
+    .pagination-controls button {
+        /* 버튼 크기 조절 */
+        padding: 10px 15px;
+        font-size: 16px;
+        /* 버튼 사이 간격 조절 */
+        margin: 0 5px;
+    }
+
+    /* 모달 창 스타일 (모바일에서 전체 화면 사용) */
+    #modal {
+        /* 화면 전체를 덮도록 설정 */
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        /* 배경색 투명도 조절 */
+        background-color: rgba(0, 0, 0, 0.9);
+        /* 더 어둡게 해서 내용에 집중 */
+        /* 모달 내용 가운데 정렬 */
+        display: flex;
+        flex-direction: column;
+        /* 내용을 세로로 쌓고 */
+        justify-content: center;
+        /* 세로 가운데 정렬 */
+        align-items: center;
+        /* 가로 가운데 정렬 */
+        padding: 10px;
+        /* 안쪽 여백 추가 */
+        box-sizing: border-box;
+        /* padding이 width에 포함되도록 */
+    }
+
+    #modal .close-btn {
+        /* 닫기 버튼 위치 조절 */
+        top: 10px;
+        right: 10px;
+        font-size: 30px;
+        color: #fff;
+        /* z-index를 높여서 다른 요소들 위에 오게 */
+        z-index: 101;
+    }
+
+    #modal-img,
+    #modal-video {
+        /* 모달 안의 이미지와 비디오 크기 조절 */
+        max-width: 100%;
+        /* 화면 너비를 넘지 않게 */
+        max-height: 80vh;
+        /* 화면 높이의 80%를 넘지 않게 (위에 닫기 버튼 공간 확보) */
+        width: auto;
+        /* 비율 유지 */
+        height: auto;
+        /* 비율 유지 */
+        object-fit: contain;
+        /* 이미지/비디오 전체가 보이도록 크기 조절 */
+        margin: auto;
+        /* 가운데 정렬 */
+    }
+}
