@@ -230,4 +230,8 @@ footer {
         height: 250px;
         padding: 0.5rem;
     }
+
+    .gallery-btn {
+        width: 150px;
+    }
 }
