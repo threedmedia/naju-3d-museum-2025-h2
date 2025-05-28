@@ -232,6 +232,7 @@ footer {
     }
 
     .gallery-btn {
-        width: 150px;
+        width: 200px;
+        font-size: 14px;
     }
 }
