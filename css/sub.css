@@ -5,7 +5,6 @@
     font-style: normal;
 }
 
-
 /* 전체 배경 및 기본 폰트 설정 */
 html,
 body {
@@ -17,32 +16,27 @@ body {
 body {
     margin: 0;
     padding: 0;
-    font-family: 'PurenJeonnam';
-    background-color: #000;
+    font-family: 'PurenJeonnam', sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
     color: #fff;
     line-height: 1.6;
-    /* 부드러운 스크롤 효과 유지! */
     scroll-behavior: smooth;
     text-align: center;
+    min-height: 100vh;
 }
 
 header h1 {
-    font-size: 70px;
+    font-size: clamp(40px, 6vw, 70px);
     margin: 2rem;
     margin-bottom: 5px;
     letter-spacing: 2px;
 }
 
 header h2 {
-    font-size: 36px;
+    font-size: clamp(24px, 4vw, 36px);
     margin: 0;
     letter-spacing: 2px;
 }
-
-main h2 {
-    font-size: 48px;
-}
-
 
 .logo-link {
     text-decoration: none;
@@ -51,23 +45,30 @@ main h2 {
     display: inline-block;
 }
 
-
 /* 그라데이션 텍스트 효과 */
 .gradient-text {
-    background-image: linear-gradient(90deg, #fff, #fff);
+    background: linear-gradient(45deg, #fff, #ffd700, #fff);
     background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-    transition: opacity 1s ease;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    animation: shimmer 3s ease-in-out infinite;
 }
 
-.gradient-text:hover {
-    animation: gradient 3s ease infinite;
+@keyframes shimmer {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
-/* 내비게이션 바 스타일 (이전과 동일) */
+/* 내비게이션 바 스타일 */
 .main-nav {
     text-align: center;
     margin: 2rem;
@@ -77,136 +78,265 @@ main h2 {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .main-nav li {
-    display: inline-block;
-    /* 가로로 나열 유지 */
-    margin: 0 10px;
-    /* 버튼 사이 간격 */
+    margin: 0;
 }
 
-/* ✨ 내비게이션 링크를 흰색 버튼 스타일로 변경! ✨ */
 .main-nav a {
     display: inline-block;
-
     text-decoration: none;
-
-    background-color: rgba(128, 128, 128, 0.4);
-
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
-
-    padding: 10px 20px;
-
-    font-size: 1.5rem;
-
+    padding: 12px 25px;
+    font-size: 1.2rem;
     font-weight: bold;
-
     transition: all 0.3s ease;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    position: relative;
+    overflow: hidden;
+}
 
-    border-radius: 1rem;
+.main-nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.main-nav a:hover::before {
+    left: 100%;
 }
 
 .main-nav a:hover {
-    background-color: #eee;
-    /* 배경색을 아주 살짝 회색으로 */
-    color: #000;
-    /* 글자색 더 진하게 */
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
-    /* 그림자 진하게 */
-    transform: translateY(-2px);
-    /* 살짝 위로 뜨는 효과 */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
 }
-
 
 /* 본문 영역 */
 main.subpage {
     padding: 3rem 2rem;
-    max-width: 960px;
+    max-width: 1200px;
     margin: auto;
 }
 
-main h3 {
-    font-size: 1.8rem;
-    color: #fff;
-    margin-bottom: 2rem;
-    text-align: center;
+/* 스토리 섹션 카드 디자인 */
+.story-card {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin: 2rem auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    position: relative;
+    overflow: hidden;
 }
 
-.postit {
-    font-size: 24px;
+.story-card::before {
+    content: '🏛️';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 80px;
+    opacity: 0.1;
+}
+
+.story-card h2 {
+    font-size: 2.5rem;
+    color: #ffd700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.story-item-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.story-item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.2);
+    border-color: rgba(255, 215, 0, 0.5);
+}
+
+.story-title {
+    font-size: 1.3rem;
+    color: #ffd700;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.story-title::before {
+    content: '⭐';
+    font-size: 1.2rem;
 }
 
 .story-content {
-    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
 }
 
-/* 각 섹션 디자인 */
-.section {
-    border-radius: 10px;
-    /* 모서리 둥글게 */
-    padding: 2rem;
-    /* 안쪽 여백 */
+/* 섹션 카드 디자인 */
+.content-section {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin: 3rem 0;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.content-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.section-title {
+    font-size: 2.2rem;
+    color: #fff;
     margin-bottom: 2rem;
-    /* 아래쪽 여백 (이게 블록 분리 효과를 줘!) */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    /* 그림자 효과 */
-    /* ... (나머지 스크롤 관련 속성들) ... */
+    text-align: center;
+    position: relative;
 }
 
-/* ... (나머지 CSS 코드는 동일) ... */
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 2px;
 }
 
-
-/* ... (나머지 main, section, content, video-group, media 쿼리 등 스타일은 동일) ... */
-
-/* Section1: 2열 레이아웃 */
-#section1 .video-group {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    /* 반응형으로 2열 비슷하게 */
-}
-
-/* Section2: 3열 레이아웃 */
-#section2 .video-group {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    /* 반응형으로 3열 비슷하게 */
-}
-
-.video-group iframe {
-    width: 100%;
-    height: 350px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.video-group {
+/* 비디오 카드 */
+.video-cards {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    /* 2열 그리드 */
-    gap: 1rem;
-    /* 영상 간 간격 */
-    justify-items: center;
-    /* 각 영상 가운데 정렬 */
-    align-items: start;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
+.video-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
 
+.video-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+    border-color: rgba(102, 126, 234, 0.5);
+}
+
+.video-card iframe {
+    width: 100%;
+    height: 250px;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 미션 배지 스타일 */
+.mission-badge {
+    display: inline-block;
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin: 5px;
+    box-shadow: 0 3px 10px rgba(255, 107, 107, 0.3);
+}
+
+/* 반응형 디자인 */
 @media (max-width: 768px) {
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .main-nav a {
         font-size: 1rem;
+        padding: 10px 20px;
     }
 
+    .story-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-cards {
+        grid-template-columns: 1fr;
+    }
+
+    main.subpage {
+        padding: 2rem 1rem;
+    }
+}
+
+/* 재미있는 호버 이펙트 */
+.fun-element {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.fun-element:hover {
+    animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    60%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    80% {
+        transform: translateY(-5px);
+    }
 }

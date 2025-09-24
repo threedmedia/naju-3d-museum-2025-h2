@@ -4,70 +4,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>갤러리</title>
+    <title>갤러리:자랑스러운 나주 알기</title>
     <link rel="stylesheet" href="css/gallery.css">
-    <script src="js/index.js" defer></script>
+    <script src="js/gallery.js" defer></script>
 
 </head>
 
 <body>
     <header>
-        <a href="../index.html" class="logo-link">
+        <a href="/index.html" class="logo-link">
             <h1 class="gradient-text">자랑스러운 나주 알기</h1>
             <h2 class="gradient-text">내가 만드는 3D 역사박물관</h2>
         </a>
     </header>
+
     <section id="gallery-section">
-        <h2 class="gradient-text">Gallery</h2>
+        <h2 class="gradient-text gallery-title">🖼️ Gallery</h2>
+
+        <div class="loading-spinner" id="loading"></div>
 
         <div id="gallery-container">
             <!-- 페이지 1 -->
             <div class="gallery-page active" data-page="1">
-                <img src="/Media/20250419_140442.jpg" alt="이미지1" onclick="openModal(this.src)" />
-                <img src="Media/20250419_140446.jpg" alt="이미지2" onclick="openModal(this.src)" />
-                <img src="Media/20250419_141345.jpg" alt="이미지1" onclick="openModal(this.src)" />
-                <img src="Media/20250419_151354.jpg" alt="이미지2" onclick="openModal(this.src)" />
-                <img src="Media/20250419_151730.jpg" alt="이미지1" onclick="openModal(this.src)" />
-                <img src="Media/20250419_153814.jpg" alt="이미지2" onclick="openModal(this.src)" />
-                <img src="Media/20250426_142924.jpg" alt="이미지1" onclick="openModal(this.src)" />
-                <img src="Media/20250426_142933.jpg" alt="이미지2" onclick="openModal(this.src)" />
-                <img src="Media/20250426_144142.jpg" alt="이미지1" onclick="openModal(this.src)" />
-                <img src="Media/20250426_154137.jpg" alt="이미지2" onclick="openModal(this.src)" />
-                <img src="Media/20250510_142910.jpg" alt="이미지1" onclick="openModal(this.src)" />
-                <img src="Media/20250510_143414.jpg" alt="이미지2" onclick="openModal(this.src)" />
-                <!-- ... 최대 10개 정도 -->
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">📸</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">🏛️</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">🎭</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">👥</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">🎨</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">📚</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">🌸</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">🎪</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">🎯</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">🏆</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">🎈</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">⭐</div>
+                </div>
             </div>
 
             <!-- 페이지 2 -->
             <div class="gallery-page" data-page="2">
-                <img src="Media/20250510_143531.jpg" alt="이미지1" onclick="openModal(this.src)" />
-                <img src="Media/20250510_144628.jpg" alt="이미지2" onclick="openModal(this.src)" />
-                <img src="Media/KakaoTalk_20250511_112134326_02.jpg" alt="이미지2" onclick="openModal(this.src)" />
-                <img src="Media/KakaoTalk_20250511_112233314_01.jpg" alt="이미지2" onclick="openModal(this.src)" />
-                <img src="Media/KakaoTalk_20250511_112233314_03.jpg" alt="이미지2" onclick="openModal(this.src)" />
-                <img src="Media/KakaoTalk_20250511_112830016_06.jpg" alt="이미지2" onclick="openModal(this.src)" />
-                <img src="Media/까치팀.jpg" alt="이미지2" onclick="openModal(this.src)" />
-                <img src="Media/꿀벌팀 (1).jpg" alt="이미지2" onclick="openModal(this.src)" />
-                <img src="Media/꿀벌팀.jpg" alt="이미지2" onclick="openModal(this.src)" />
-                <img src="Media/청룡팀.jpg" alt="이미지2" onclick="openModal(this.src)" />
-                <img src="Media/황소팀.jpg" alt="이미지2" onclick="openModal(this.src)" />
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">🌟</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">🎊</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">🏮</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">🎭</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">🎪</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">🎨</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">🌈</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">🦋</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">🐝</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">🐉</div>
+                </div>
+                <div class="image-card" onclick="openModal(this.querySelector('img'))">
+                    <div class="image-placeholder">🐂</div>
+                </div>
             </div>
-
         </div>
 
         <div class="pagination-controls">
-            <button class="page-btn" onclick="showPage(1)">1</button>
-            <button class="page-btn" onclick="showPage(2)">2</button>
-            <button class="page-btn" onclick="showNextPage()">다음</button>
+            <button class="page-btn active" onclick="showPage(1)">1️⃣</button>
+            <button class="page-btn" onclick="showPage(2)">2️⃣</button>
+            <button class="page-btn" onclick="showNextPage()">다음 ▶️</button>
         </div>
-        <!-- 모달 레이아웃 -->
-        <!-- <div id="modal" onclick="closeModal()">
-            <span class="close-btn">&times;</span>
-            <img id="modal-img" />
-            <video id="modal-video" controls></video>
-        </div> -->
     </section>
 
-</body>
+    <!-- 모달 -->
+    <div id="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <img id="modal-img" />
+        </div>
+    </div>
 
 </html>

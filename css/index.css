@@ -1,238 +1,464 @@
-@font-face {
-    font-family: 'PurenJeonnam';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/PureunJeonnam.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+ @font-face {
+     font-family: 'PurenJeonnam';
+     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/PureunJeonnam.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+ }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
 
-body {
-    font-family: 'PurenJeonnam';
-    background-color: #000;
-    color: #fff;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 20px;
-    overflow-x: hidden;
-    font-weight: bold;
-}
+ body {
+     font-family: 'PurenJeonnam', sans-serif;
+     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #1a1a2e 100%);
+     background-size: 400% 400%;
+     animation: gradientShift 8s ease infinite;
+     color: #fff;
+     min-height: 100vh;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     font-size: 20px;
+     overflow-x: hidden;
+     font-weight: bold;
+     position: relative;
+ }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
+ /* 배경 애니메이션 */
+ @keyframes gradientShift {
+     0% {
+         background-position: 0% 50%;
+     }
 
-/* 그라데이션 텍스트 효과 */
-.gradient-text {
-    background-image: linear-gradient(90deg, #fff, #fff);
-    background-size: 200% auto;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-    transition: opacity 1s ease;
-}
+     50% {
+         background-position: 100% 50%;
+     }
 
-.gradient-text:hover {
-    animation: gradient 3s ease infinite;
-}
+     100% {
+         background-position: 0% 50%;
+     }
+ }
 
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
+ /* 떠다니는 파티클 효과 */
+ body::before {
+     content: '';
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-image:
+         radial-gradient(2px 2px at 20px 30px, rgba(255, 215, 0, 0.3), transparent),
+         radial-gradient(2px 2px at 40px 70px, rgba(102, 126, 234, 0.3), transparent),
+         radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.3), transparent),
+         radial-gradient(1px 1px at 130px 80px, rgba(255, 215, 0, 0.3), transparent),
+         radial-gradient(2px 2px at 160px 30px, rgba(102, 126, 234, 0.3), transparent);
+     background-repeat: repeat;
+     background-size: 200px 100px;
+     animation: sparkle 20s linear infinite;
+     pointer-events: none;
+     z-index: 1;
+ }
 
-    50% {
-        background-position: 100% 50%;
-    }
+ @keyframes sparkle {
+     from {
+         transform: translateY(0);
+     }
 
-    100% {
-        background-position: 0% 50%;
-    }
-}
+     to {
+         transform: translateY(-100px);
+     }
+ }
 
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+ /* 그라데이션 텍스트 효과 */
+ .gradient-text {
+     background: linear-gradient(45deg, #fff, #ffd700, #fff, #667eea);
+     background-size: 300% auto;
+     background-clip: text;
+     -webkit-background-clip: text;
+     color: transparent;
+     animation: shimmer 4s ease-in-out infinite;
+     text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+     position: relative;
+     z-index: 2;
+ }
 
-/* Header */
-header {
-    text-align: center;
-    padding: 3rem 1rem 1rem;
-}
+ @keyframes shimmer {
 
-.logo-link {
-    text-decoration: none;
-    color: inherit;
-}
+     0%,
+     100% {
+         background-position: 0% 50%;
+     }
 
-h1 {
-    margin-bottom: 1rem;
-    font-size: 70px;
-    letter-spacing: 2px;
-}
+     50% {
+         background-position: 100% 50%;
+     }
+ }
 
-h2 {
-    font-size: 36px;
-    margin-bottom: 0.5rem;
-    letter-spacing: 1px;
-}
+ /* Header */
+ header {
+     text-align: center;
+     padding: 3rem 1rem 1rem;
+     position: relative;
+     z-index: 2;
+ }
 
-/* Main */
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-}
+ .logo-link {
+     text-decoration: none;
+     color: inherit;
+     display: block;
+     transition: transform 0.3s ease;
+ }
 
-.section-title {
-    margin-bottom: 2rem;
-}
+ .logo-link:hover {
+     transform: scale(1.05);
+ }
 
-/* Gallery Button - 갤러리 이동 버튼 */
-.gallery-button-top {
-    text-align: center;
-    margin: 20px 0;
-}
+ h1 {
+     margin-bottom: 1rem;
+     font-size: clamp(40px, 8vw, 70px);
+     letter-spacing: 2px;
+     animation: titlePulse 3s ease-in-out infinite;
+ }
 
-.gallery-btn {
-    display: inline-block;
-    color: #fff;
-    padding: 12px 20px;
-    text-align: center;
-    font-size: 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    width: 400px;
-    border-width: 0.1px;
-    border-style: solid;
+ h2 {
+     font-size: clamp(24px, 5vw, 36px);
+     margin-bottom: 0.5rem;
+     letter-spacing: 1px;
+     opacity: 0;
+     animation: fadeInUp 1s ease 0.5s forwards;
+ }
 
+ @keyframes titlePulse {
 
-}
+     0%,
+     100% {
+         text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+     }
 
-.gallery-btn:hover {
-    background-color: #666;
-}
+     50% {
+         text-shadow: 0 0 40px rgba(255, 215, 0, 0.8), 0 0 60px rgba(102, 126, 234, 0.5);
+     }
+ }
 
-/* Exhibition Buttons - 전시관 버튼들 */
-.button-group {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    max-width: 100%;
-}
+ @keyframes fadeInUp {
+     from {
+         opacity: 0;
+         transform: translateY(30px);
+     }
 
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
 
-.exhibition-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    padding: 1rem;
-    border-radius: 0.3rem;
-    transition: all 0.4s ease;
-    width: 100%;
-    height: 250px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    transform: translateY(0);
-    color: white;
-    font-weight: bold;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 0.6s forwards;
-}
+ /* Gallery Button */
+ .gallery-button-top {
+     text-align: center;
+     margin: 20px 0;
+     position: relative;
+     z-index: 2;
+ }
 
-.exhibition-btn:hover {
-    box-shadow: 0 0 30px rgba(235, 202, 122, 0.5);
-}
+ .gallery-btn {
+     display: inline-block;
+     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+     color: #fff;
+     padding: 15px 30px;
+     text-align: center;
+     font-size: 1.5rem;
+     border-radius: 50px;
+     text-decoration: none;
+     transition: all 0.4s ease;
+     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+     position: relative;
+     overflow: hidden;
+     font-weight: bold;
+ }
 
-.exhibition-btn:hover img {
-    transform: scale(1.1);
-    transition: transform 0.4s ease;
-}
+ .gallery-btn::before {
+     content: '🏛️';
+     position: absolute;
+     left: -30px;
+     top: 50%;
+     transform: translateY(-50%);
+     font-size: 1.2em;
+     transition: left 0.4s ease;
+ }
 
-.exhibition-btn:nth-child(1) {
-    animation-delay: 0.2s;
-}
+ .gallery-btn::after {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: -100%;
+     width: 100%;
+     height: 100%;
+     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+     transition: left 0.6s;
+ }
 
-.exhibition-btn:nth-child(2) {
-    animation-delay: 0.4s;
-}
+ .gallery-btn:hover::after {
+     left: 100%;
+ }
 
-.exhibition-btn:nth-child(3) {
-    animation-delay: 0.6s;
-}
+ .gallery-btn:hover::before {
+     left: 15px;
+ }
 
-.exhibition-btn:nth-child(4) {
-    animation-delay: 0.8s;
-}
+ .gallery-btn:hover {
+     transform: translateY(-3px) scale(1.05);
+     box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+     background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+ }
 
+ /* Main */
+ main {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     padding: 2rem 1rem;
+     position: relative;
+     z-index: 2;
+     max-width: 1200px;
+     width: 100%;
+ }
 
-.exhibition-btn img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0.5rem;
-    margin-top: 10px;
-}
+ /* Exhibition Cards */
+ .button-group {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+     gap: 2rem;
+     max-width: 100%;
+     width: 100%;
+     padding: 1rem;
+ }
 
-.btn-label {
-    margin-bottom: 20px;
-}
+ .exhibition-btn {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     text-decoration: none;
+     padding: 1.5rem;
+     border-radius: 20px;
+     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+     height: 320px;
+     color: white;
+     font-weight: bold;
+     opacity: 0;
+     transform: translateY(50px) scale(0.9);
+     position: relative;
+     overflow: hidden;
+     background: linear-gradient(135deg,
+             rgba(255, 255, 255, 0.1) 0%,
+             rgba(255, 255, 255, 0.05) 100%);
+     backdrop-filter: blur(10px);
+     border: 1px solid rgba(255, 255, 255, 0.2);
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+ }
 
-/* Footer */
-footer {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    text-align: center;
-    width: 100%;
-    margin-top: auto;
-    padding: 20px 0;
-}
+ /* 각 카드마다 다른 색상 테마 */
+ .exhibition-btn:nth-child(1) {
+     border-color: rgba(255, 107, 107, 0.5);
+     box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+ }
 
-.footer {
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    margin-top: 100px;
-}
+ .exhibition-btn:nth-child(2) {
+     border-color: rgba(255, 206, 84, 0.5);
+     box-shadow: 0 10px 30px rgba(255, 206, 84, 0.2);
+ }
 
-/* 모바일 반응형 */
-@media (max-width: 576px) {
-    h1 {
-        font-size: 34px;
-    }
+ .exhibition-btn:nth-child(3) {
+     border-color: rgba(74, 144, 226, 0.5);
+     box-shadow: 0 10px 30px rgba(74, 144, 226, 0.2);
+ }
 
-    h2 {
-        font-size: 24px;
-    }
+ .exhibition-btn:nth-child(4) {
+     border-color: rgba(88, 214, 141, 0.5);
+     box-shadow: 0 10px 30px rgba(88, 214, 141, 0.2);
+ }
 
-    .button-group {
-        grid-template-columns: 1fr;
-        width: 100%;
+ .exhibition-btn::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     height: 4px;
+     background: linear-gradient(90deg,
+             rgba(255, 215, 0, 0.8),
+             rgba(102, 126, 234, 0.8));
+     transform: scaleX(0);
+     transition: transform 0.3s ease;
+ }
 
-    }
+ .exhibition-btn:hover::before {
+     transform: scaleX(1);
+ }
 
-    .exhibition-btn {
-        height: 250px;
-        padding: 0.5rem;
-    }
+ .exhibition-btn:hover {
+     transform: translateY(-10px) scale(1.03);
+     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+ }
 
-    .gallery-btn {
-        width: 200px;
-        font-size: 14px;
-    }
-}
+ .exhibition-btn:nth-child(1):hover {
+     box-shadow: 0 25px 50px rgba(255, 107, 107, 0.4);
+     border-color: rgba(255, 107, 107, 0.8);
+ }
+
+ .exhibition-btn:nth-child(2):hover {
+     box-shadow: 0 25px 50px rgba(255, 206, 84, 0.4);
+     border-color: rgba(255, 206, 84, 0.8);
+ }
+
+ .exhibition-btn:nth-child(3):hover {
+     box-shadow: 0 25px 50px rgba(74, 144, 226, 0.4);
+     border-color: rgba(74, 144, 226, 0.8);
+ }
+
+ .exhibition-btn:nth-child(4):hover {
+     box-shadow: 0 25px 50px rgba(88, 214, 141, 0.4);
+     border-color: rgba(88, 214, 141, 0.8);
+ }
+
+ .exhibition-btn img {
+     width: 100%;
+     height: 200px;
+     object-fit: cover;
+     border-radius: 15px;
+     transition: all 0.4s ease;
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+ }
+
+ .exhibition-btn:hover img {
+     transform: scale(1.05);
+     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+ }
+
+ .btn-label {
+     margin-top: 1rem;
+     font-size: 1.1rem;
+     text-align: center;
+     color: #fff;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+     transition: color 0.3s ease;
+ }
+
+ .exhibition-btn:hover .btn-label {
+     color: #ffd700;
+ }
+
+ /* 카드 등장 애니메이션 */
+ .exhibition-btn.animate {
+     animation: cardAppear 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+ }
+
+ @keyframes cardAppear {
+     to {
+         opacity: 1;
+         transform: translateY(0) scale(1);
+     }
+ }
+
+ .exhibition-btn:nth-child(1) {
+     animation-delay: 0.2s;
+ }
+
+ .exhibition-btn:nth-child(2) {
+     animation-delay: 0.4s;
+ }
+
+ .exhibition-btn:nth-child(3) {
+     animation-delay: 0.6s;
+ }
+
+ .exhibition-btn:nth-child(4) {
+     animation-delay: 0.8s;
+ }
+
+ /* Footer */
+ footer {
+     background: linear-gradient(135deg,
+             rgba(0, 0, 0, 0.7) 0%,
+             rgba(26, 26, 46, 0.7) 100%);
+     backdrop-filter: blur(10px);
+     color: #fff;
+     text-align: center;
+     width: 100%;
+     margin-top: auto;
+     padding: 30px 20px;
+     border-top: 1px solid rgba(255, 255, 255, 0.1);
+     position: relative;
+     z-index: 2;
+ }
+
+ .footer {
+     font-size: 0.9rem;
+     letter-spacing: 1px;
+     opacity: 0.8;
+     transition: opacity 0.3s ease;
+ }
+
+ .footer:hover {
+     opacity: 1;
+ }
+
+ /* 플레이스홀더 이미지 스타일 */
+ .placeholder-img {
+     width: 100%;
+     height: 200px;
+     background: linear-gradient(135deg, #667eea, #764ba2);
+     border-radius: 15px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 3rem;
+     color: white;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+ }
+
+ /* 반응형 디자인 */
+ @media (max-width: 768px) {
+     .button-group {
+         grid-template-columns: 1fr;
+         gap: 1.5rem;
+         padding: 0.5rem;
+     }
+
+     .exhibition-btn {
+         height: 280px;
+         padding: 1rem;
+     }
+
+     .gallery-btn {
+         font-size: 1.2rem;
+         padding: 12px 25px;
+     }
+
+     main {
+         padding: 1rem 0.5rem;
+     }
+ }
+
+ @media (max-width: 480px) {
+     h1 {
+         font-size: 34px;
+     }
+
+     h2 {
+         font-size: 20px;
+     }
+
+     .exhibition-btn {
+         height: 250px;
+     }
+
+     .gallery-btn {
+         font-size: 1rem;
+         padding: 10px 20px;
+     }
+ }
