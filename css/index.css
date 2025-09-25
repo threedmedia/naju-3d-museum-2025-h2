@@ -181,7 +181,7 @@
  }
 
  .gallery-btn::before {
-     content: '🏛️';
+     content: '🖼️';
      position: absolute;
      left: -30px;
      top: 50%;
