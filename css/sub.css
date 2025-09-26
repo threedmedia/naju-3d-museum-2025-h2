@@ -620,3 +620,49 @@ footer {
         font-size: 0.88rem;
     }
 }
+
+/* ====== 모바일 폭 조절(권장) : 끝부분에 추가 ====== */
+:root {
+    /* 원하는 퍼센트로 조절: 96~86vw 사이 추천 */
+    --m-card-w: 92vw;
+    /* story-card 너비 */
+    --m-sec-w: 94vw;
+    /* content-section 너비 */
+}
+
+@media (max-width: 768px) {
+
+    /* 기본적으로 양옆 여백을 카드/섹션이 책임지게 */
+    main.subpage {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* story-card 폭/여백 조절 */
+    .story-card {
+        width: var(--m-card-w);
+        max-width: 640px;
+        /* 필요시 상한선 */
+        margin: 1.2rem auto;
+        /* 가운데 정렬 */
+        padding: 1.1rem 1rem;
+        /* 좌우 패딩 살짝 축소 */
+    }
+
+    /* content-section 폭/여백 조절 */
+    .content-section {
+        width: var(--m-sec-w);
+        max-width: 700px;
+        /* 필요시 상한선 */
+        margin: 1.4rem auto;
+        padding: 1.2rem 1rem;
+    }
+}
+
+/* 초소형 기기 보정(선택): 아주 작은 화면에서 살짝 더 넓게 */
+@media (max-width: 360px) {
+    :root {
+        --m-card-w: 95vw;
+        --m-sec-w: 96vw;
+    }
+}
