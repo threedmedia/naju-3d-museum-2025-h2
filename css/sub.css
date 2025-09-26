@@ -25,6 +25,7 @@ body {
     min-height: 100vh;
 }
 
+/* 헤더 */
 header h1 {
     font-size: clamp(40px, 6vw, 70px);
     margin: 2rem;
@@ -49,8 +50,8 @@ header h2 {
 .gradient-text {
     background: linear-gradient(45deg, #fff, #ffd700, #fff);
     background-size: 200% auto;
-    background-clip: text;
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
     text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
     animation: shimmer 3s ease-in-out infinite;
@@ -68,7 +69,7 @@ header h2 {
     }
 }
 
-/* 내비게이션 바 스타일 */
+/* 내비게이션 바 */
 .main-nav {
     text-align: center;
     margin: 2rem;
@@ -123,11 +124,11 @@ header h2 {
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
 }
 
-/* 본문 영역 */
+/* 본문 영역 컨테이너 */
 main.subpage {
     padding: 3rem 2rem;
     max-width: 800px;
-    /* 기존 1200px에서 800px로 축소 */
+    /* 기존 1200 -> 800 */
     margin: auto;
 }
 
@@ -136,10 +137,8 @@ main.subpage {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     border-radius: 20px;
     padding: 3rem 2rem;
-    /* 패딩 조정으로 높이 증가 */
     margin: 2rem auto;
     max-width: 700px;
-    /* 최대 너비 설정 */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     border: 2px solid rgba(255, 215, 0, 0.3);
     position: relative;
@@ -159,10 +158,10 @@ main.subpage {
     font-size: 2.5rem;
     color: #ffd700;
     margin-bottom: 2rem;
-    /* 마진 증가 */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+/* 스토리 카드 그리드 */
 .story-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -171,23 +170,20 @@ main.subpage {
     margin-top: 2rem;
 }
 
-/* 첫 번째 카드(주제)를 전체 너비로 병합 */
+/* 첫 항목 전체 너비 */
 .story-item-card:first-child {
     grid-column: 1 / -1;
-    /* 전체 열에 걸쳐 배치 */
 }
 
 .story-item-card {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 1.5rem;
-    /* 패딩 조정 - 2x2에 맞게 적당히 */
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
     position: relative;
     min-height: 140px;
-    /* 최소 높이 조정 */
 }
 
 .story-item-card:hover {
@@ -198,11 +194,9 @@ main.subpage {
 
 .story-title {
     font-size: 1.4rem;
-    /* 폰트 크기 증가 */
     color: #ffd700;
     font-weight: bold;
     margin-bottom: 1.5rem;
-    /* 마진 증가 */
     display: flex;
     align-items: center;
     gap: 10px;
@@ -215,9 +209,7 @@ main.subpage {
 
 .story-content {
     font-size: 1.2rem;
-    /* 폰트 크기 증가 */
     line-height: 1.8;
-    /* 줄 간격 증가 */
     color: #e0e0e0;
 }
 
@@ -226,11 +218,8 @@ main.subpage {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     border-radius: 20px;
     padding: 3rem 2rem;
-    /* 패딩 조정 */
     margin: 3rem auto;
-    /* auto로 중앙 정렬 */
     max-width: 750px;
-    /* 최대 너비 설정 */
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
     border: 2px solid rgba(102, 126, 234, 0.3);
     position: relative;
@@ -271,7 +260,7 @@ main.subpage {
 .video-cards {
     display: grid;
     grid-template-columns: 1fr;
-    /* 1열로 변경 */
+    /* 1열 */
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -280,7 +269,6 @@ main.subpage {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     padding: 2rem;
-    /* 패딩 증가 */
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
@@ -295,32 +283,28 @@ main.subpage {
 .video-card iframe {
     width: 100%;
     height: 300px;
-    /* 높이 증가 (기존 250px) */
+    /* 데스크톱 기본값 */
     border-radius: 12px;
     border: none;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* 미션 배지 스타일 */
+/* 미션 배지 */
 .mission-badge {
     display: inline-block;
     background: linear-gradient(45deg, #ff6b6b, #feca57);
     color: white;
     padding: 10px 18px;
-    /* 패딩 증가 */
     border-radius: 20px;
     font-size: 1rem;
-    /* 폰트 크기 증가 */
     font-weight: bold;
     margin: 8px 5px;
-    /* 마진 증가 */
     box-shadow: 0 3px 10px rgba(255, 107, 107, 0.3);
 }
 
+/* 푸터 */
 footer {
-    background: linear-gradient(135deg,
-            rgba(0, 0, 0, 0.7) 0%,
-            rgba(26, 26, 46, 0.7) 100%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(26, 26, 46, 0.7) 100%);
     backdrop-filter: blur(10px);
     color: #fff;
     text-align: center;
@@ -352,15 +336,13 @@ footer {
     flex-wrap: wrap;
 }
 
-/* 패밀리사이트 드롭박스 스타일링 */
+/* 패밀리사이트 드롭박스 */
 .familysite {
     position: relative;
 }
 
 .familysite select {
-    background: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.1) 0%,
-            rgba(255, 255, 255, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     color: #fff;
@@ -379,9 +361,7 @@ footer {
 }
 
 .familysite select:hover {
-    background: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.15) 0%,
-            rgba(255, 255, 255, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
     border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -411,7 +391,7 @@ footer {
     transform: translateY(-50%) scale(1.1);
 }
 
-/* 드롭다운 옵션 스타일링 */
+/* 옵션 */
 .familysite select option {
     background: rgba(26, 26, 46, 0.95);
     color: #fff;
@@ -421,67 +401,6 @@ footer {
 
 .familysite select option:hover {
     background: rgba(255, 255, 255, 0.1);
-}
-
-/* 반응형 디자인 */
-@media (max-width: 768px) {
-    .footer-wrap {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .footer {
-        font-size: 0.8rem;
-        margin-bottom: 10px;
-    }
-
-    .familysite select {
-        min-width: 180px;
-        font-size: 0.8rem;
-        padding: 8px 30px 8px 12px;
-    }
-
-    main.subpage {
-        padding: 2rem 1rem;
-        max-width: 95%;
-        /* 모바일에서 더 넓게 */
-    }
-
-    .story-card {
-        max-width: 100%;
-        padding: 2rem 1.5rem;
-    }
-
-    .content-section {
-        max-width: 100%;
-        padding: 2rem 1.5rem;
-    }
-}
-
-/* 반응형 디자인 */
-@media (max-width: 768px) {
-    .main-nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .main-nav a {
-        font-size: 1rem;
-        padding: 10px 20px;
-    }
-
-    .story-grid {
-        grid-template-columns: 1fr;
-        /* 모바일에서는 1열로 */
-    }
-
-    .video-cards {
-        grid-template-columns: 1fr;
-    }
-
-    main.subpage {
-        padding: 2rem 1rem;
-    }
 }
 
 /* 재미있는 호버 이펙트 */
@@ -509,5 +428,195 @@ footer {
 
     80% {
         transform: translateY(-5px);
+    }
+}
+
+/* ---------------------------
+   📱 모바일 최적화 (portrait)
+----------------------------*/
+@media (max-width: 768px) {
+
+    /* 기본 글자/행간 */
+    html,
+    body {
+        font-size: clamp(14px, 3.8vw, 16px);
+        line-height: 1.7;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* 헤더 타이포 줄이기 */
+    header h1 {
+        font-size: clamp(28px, 7vw, 36px);
+        margin: 1.2rem 1rem 0.4rem;
+    }
+
+    header h2 {
+        font-size: clamp(16px, 4.4vw, 20px);
+        margin: 0 1rem 0.8rem;
+    }
+
+    /* 버튼을 한 줄 하나씩 */
+    .main-nav {
+        margin: 1.4rem 1rem;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .main-nav li {
+        width: 100%;
+    }
+
+    .main-nav a {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px 16px;
+        border-radius: 14px;
+    }
+
+    .main-nav a::before {
+        display: none;
+    }
+
+    /* 본문 컨테이너 여백/폭 */
+    main.subpage {
+        max-width: 100%;
+        width: 100%;
+        padding: 1.2rem 1rem;
+    }
+
+    /* 스토리 카드 축소 & 단일 컬럼 */
+    .story-card {
+        max-width: 100%;
+        padding: 1.4rem 1rem;
+        margin: 1.2rem auto;
+        border-radius: 14px;
+    }
+
+    .story-card::before {
+        display: none;
+    }
+
+    .story-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+        margin-top: 1rem;
+    }
+
+    .story-item-card {
+        padding: 1rem;
+        min-height: auto;
+    }
+
+    .story-title {
+        font-size: 1.05rem;
+        margin-bottom: 0.6rem;
+        gap: 8px;
+    }
+
+    .story-content {
+        font-size: 0.98rem;
+        line-height: 1.7;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+    }
+
+    /* 섹션 카드 여백/경계 */
+    .content-section {
+        max-width: 100%;
+        padding: 1.4rem 1rem;
+        margin: 1.4rem auto;
+        border-radius: 14px;
+    }
+
+    .section-title {
+        font-size: 1.35rem;
+        margin-bottom: 1rem;
+    }
+
+    .section-title::after {
+        bottom: -8px;
+        width: 44px;
+        height: 2px;
+    }
+
+    /* 비디오: 16:9 비율 고정 */
+    .video-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .video-card {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+
+    .video-card iframe {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        height: auto;
+        /* 고정 높이 제거 */
+        border-radius: 10px;
+    }
+
+    /* 미션 배지 */
+    .mission-badge {
+        font-size: 0.92rem;
+        padding: 8px 12px;
+        border-radius: 16px;
+        display: inline-flex;
+        align-items: center;
+        margin: 6px 4px;
+        white-space: nowrap;
+    }
+
+    /* 푸터 드롭다운 */
+    .footer-wrap {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .familysite select {
+        width: 100%;
+        min-width: 0;
+        font-size: 0.95rem;
+        padding: 10px 36px 10px 12px;
+        border-radius: 10px;
+    }
+
+    /* 애니메이션 강도 완화 */
+    .gradient-text {
+        animation-duration: 6s;
+    }
+
+    /* 동작 줄이기 선호 시 */
+    @media (prefers-reduced-motion: reduce) {
+        .gradient-text {
+            animation: none !important;
+        }
+
+        .fun-element:hover {
+            animation: none !important;
+        }
+    }
+}
+
+/* 초소형 기기 보정 */
+@media (max-width: 360px) {
+    .main-nav a {
+        padding: 10px 12px;
+    }
+
+    .mission-badge {
+        font-size: 0.88rem;
     }
 }
