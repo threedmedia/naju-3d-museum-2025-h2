@@ -26,11 +26,14 @@ document.querySelectorAll('.exhibition-btn').forEach(card => {
         ripple.style.height = '20px';
         ripple.style.marginLeft = '-10px';
         ripple.style.marginTop = '-10px';
+        ripple.style.pointerEvents = 'none';
 
         card.appendChild(ripple);
 
         setTimeout(() => {
-            card.removeChild(ripple);
+            if (card.contains(ripple)) {
+                card.removeChild(ripple);
+            }
         }, 600);
     });
 });
@@ -45,24 +48,6 @@ galleryBtn.addEventListener('mouseleave', function () {
     this.style.animation = '';
 });
 
-// CSS 애니메이션 추가
-const style = document.createElement('style');
-style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-            
-            @keyframes pulse {
-                0% { transform: scale(1); }
-                50% { transform: scale(1.05); }
-                100% { transform: scale(1); }
-            }
-        `;
-document.head.appendChild(style);
-
 // 스크롤 효과 (부드러운 전환)
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -72,12 +57,3 @@ const observer = new IntersectionObserver((entries) => {
         }
     });
 });
-
-// 패럴랙스 스크롤 효과
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const rate = scrolled * -0.5;
-
-    document.body.style.transform = `translateY(${rate}px)`;
-});
-
